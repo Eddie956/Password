@@ -34,3 +34,11 @@ class Credential:
 		'''
 		Credential.credential_list.append(self)
 	
+	@classmethod
+	def find_by_acount_name(cls, account_name):
+		'''
+		Method that takes an acount name that matches the credential details
+		'''
+		for credentialin cls.credential_list:
+			if credential.account_name == account_name:
+				return credential

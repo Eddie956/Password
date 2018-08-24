@@ -58,10 +58,15 @@ class TestCredential(unittest.TestCase):
         pinterest = Credential("Artjim", "pinterest", "pdrfg3")
         pinterest.save_credential()
         self.assertEqual(len(Credential.display_credential(pinterest.user_name)),2)
-    def test_find_by_acount_name(self):
+    def test_find_by_account_name(self):
         '''
         test to check if we can find an account  and display information
         '''
+        self.new_credential.save_credentials()
+        pinterest = Credential("Artjim", "pinterest", "pdrfg3")
+        pinterest.save_credential()
+        found_account = Credential.find_by_account_name("pinterest")
+        self.assertEqual(found_account,pinterest)
 if __name__ == '__main__':
     unittest.main()
 
