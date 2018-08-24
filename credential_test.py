@@ -28,6 +28,7 @@ class TestCredential(unittest.TestCase):
         setup method to run before each test case
         '''
         self.new_credential = Credential("Artjim","pinterest","pdrfg3")
+
     def __init__(self):
         '''
         test if the objects setup are propery initialized
@@ -35,14 +36,32 @@ class TestCredential(unittest.TestCase):
         self.assertEqual(self.new_credential.user_name,"Artjim")
         self.assertEqual(self.new_credential.acount_name,"pinterest")
         self.assertEqual(self.new_credential.password, "pinterest")
-    def test_save_credential(self):
+    def tearDown(self):
         '''
-        test if the credential data is saved into the contact list
+        it cleans up after the testcase 
+        '''
+        User.user_list = []
+        Credential.credential_list = []
+    def test_save_multiple_credential(self):
+        '''
+        test if multiple credential data is saved into the contact list
         '''
         self.new_credential.save_credential()
         pinterest = Credential("Artjim", "pinterest", "pdrfg3")
         pinterest.save_credential()
         self.assertEqual(len(Credential.credential_list),2)
+    def test_display_credential(self):
+        '''
+        test to check if al credential are displayed 
+        '''
+        self.new_credential.save_credential()
+        pinterest = Credential("Artjim", "pinterest", "pdrfg3")
+        pinterest.save_credential()
+        self.assertEqual(len(Credential.display_credential(pinterest.user_name)),2)
+    def test_find_by_acount_name(self):
+        '''
+        test to check if we can find an account  and display information
+        '''
 if __name__ == '__main__':
     unittest.main()
 
