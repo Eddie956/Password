@@ -67,6 +67,22 @@ class TestCredential(unittest.TestCase):
         pinterest.save_credential()
         found_account = Credential.find_by_account_name("pinterest")
         self.assertEqual(found_account,pinterest)
+    def test_credential_exists(self):
+        '''
+        test to check if we can return a Bolean if we canot find the credential
+        '''
+        self.new_credential.save_credential()
+        pinterest = Credential("Artjim", "pinterest", "pdrfg3")
+        pinterest.save_credential()
+
+        credential_exists = Credential.account_name_exists("pinterest")
+
+        self.assertTrue(account_name_exists)
+    def test_display_all_credentials(self):
+        '''
+        method that returns a list of all credentials saved
+        '''
+        self.asertEqual(Credential.display_credential(),Credential.credential_list)
 if __name__ == '__main__':
     unittest.main()
 

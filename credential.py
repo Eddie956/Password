@@ -42,3 +42,19 @@ class Credential:
 		for credentialin cls.credential_list:
 			if credential.account_name == account_name:
 				return credential
+	@classmethod
+	def contact_exist(cls,account_name):
+		'''
+		method that checks if the account exists from the contact list.
+		'''
+		for credential in cls.credential_list:
+			if credential.account_name == account_name:
+				return True
+		return False
+	
+	@classmethod
+	def display_account_name(cls):
+		'''
+		method that returns the credential list
+		'''
+		return cls.credential_list
