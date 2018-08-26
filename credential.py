@@ -20,6 +20,17 @@ class Credential:
 
 	credential_list = []
 
+	@classmethod
+	def check_user(cls, f_name, password):
+		'''
+		Method that checks if the name and password entered match entries in the users_list
+		'''
+		current_user = ''
+		for user in User.users_list:
+			if (user.f_name == f_name and user.password == password):
+				current_user = user._name
+		return current_user
+		
 	def __init__(self,user_name,account_name,password):
 		'''
 		method that defines properties for each
@@ -39,7 +50,7 @@ class Credential:
 		'''
 		Method that takes an acount name that matches the credential details
 		'''
-		for credentialin cls.credential_list:
+		for credential in  cls.credential_list:
 			if credential.account_name == account_name:
 				return credential
 	@classmethod
@@ -58,3 +69,5 @@ class Credential:
 		method that returns the credential list
 		'''
 		return cls.credential_list
+
+	

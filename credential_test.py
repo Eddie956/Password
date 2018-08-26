@@ -25,6 +25,7 @@ class TestUser(unittest.TestCase):
         self.assertEqual(len(User.user_list),1)
 
 class TestCredential(unittest.TestCase):
+    
     def setup(self):
         '''
         setup method to run before each test case
@@ -36,7 +37,7 @@ class TestCredential(unittest.TestCase):
         test if the objects setup are propery initialized
         '''
         self.assertEqual(self.new_credential.user_name,"Artjim")
-        self.assertEqual(self.new_credential.acount_name,"pinterest")
+        self.assertEqual(self.new_credential.account_name,"pinterest")
         self.assertEqual(self.new_credential.password, "pinterest")
     def tearDown(self):
         '''
@@ -64,22 +65,12 @@ class TestCredential(unittest.TestCase):
         '''
         test to check if we can find an account  and display information
         '''
-        self.new_credential.save_credentials()
-        pinterest = Credential("Artjim", "pinterest", "pdrfg3")
-        pinterest.save_credential()
-        found_account = Credential.find_by_account_name("pinterest")
-        self.assertEqual(found_account,pinterest)
-    def test_credential_exists(self):
-        '''
-        test to check if we can return a Bolean if we canot find the credential
-        '''
         self.new_credential.save_credential()
         pinterest = Credential("Artjim", "pinterest", "pdrfg3")
         pinterest.save_credential()
-
-        credential_exists = Credential.account_name_exists("pinterest")
-
-        self.assertTrue(account_name_exists)
+        credential_exists = Credential.find_by_site_name('pinterest')
+		self.assertEqual(credential_exists, twitter)
+    
     def test_display_all_credentials(self):
         '''
         method that returns a list of all credentials saved
@@ -97,7 +88,8 @@ class TestCredential(unittest.TestCase):
             find_credential = Credential.find_by_account_name(credential.account_name)
             return pyperclip.copy(find_credential.password)
         Credential.copy_credential(self.new_credential.account_name)
-        self.assertEqual('pdrfg3'pyperclip.paste())
+
+        self.assertEqual('pdrfg3',pyperclip.paste())
         print(pyperclip.paste())
         
 if __name__ == '__main__':
