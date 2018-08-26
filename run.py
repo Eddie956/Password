@@ -65,7 +65,11 @@ def main():
             save_user(create_user(f_name,l_name,password))
             print("\n")
             print(f"New Account Created for: {f_name} ")
-        
+        elif short_code =='ex':
+            print("\n")
+            print("Godbye {user_name} ")
+            break 
+
         elif short_code == 'lg':
             print("Please login to your acount:")
             user_name = input('Enter your first name - ').strip()
@@ -74,7 +78,63 @@ def main():
             if user_exists == user_name:
                 print("\n")
                 print("Welcome {user_name}. What do you want to do")
-                
+
                 while True:
-                    print
+                    print('Choose: \n cc - create a credential \n dc display credentials \n copy - copy pasword to the clipboard \n ex - exit')
+                    elif short_code == 'cc':
+						print(' ')
+						print('Enter your credential details:')
+						site_name = input('Enter the site\'s name- ').strip()
+						account_name = input('Enter your account\'s name - ').strip()
+						while True:
+							print(' ')
+							print('Please choose an option for entering a password: \n exp-enter existing password \n gp-generate a password \n ex-exit')
+							password_choice = input('Enter an option: ').lower().strip()
+							if password_choice == 'exp':
+								print(" ")
+								password = input('Enter your password: ').strip()
+								break
+							elif password_choice == 'gp':
+								password = generate_password()
+								break
+							elif password_choice == 'ex':
+								break
+							else:
+								print(' Wrong option entered. ')
+						save_credential(create_credential(
+						    user_name, site_name, account_name, password))
+						print(' ')
+						print(f'Credential Created: Site Name: {site_name} - Account Name: {account_name} - Password: {password}')
+						print(' ')
+					elif short_code == 'dc':
+						print(' ')
+						if display_credentials(user_name):
+							print('Here is a list of all your credentials')
+							print(' ')
+							for credential in display_credentials(user_name):
+								print(f'Site Name: {credential.site_name} - Account Name: {credential.account_name} - Password: {credential.password}')
+							print(' ')	
+						else:
+							print(' ')
+							print("You don't seem to have any credentials saved yet")
+							print(' ')
+					elif short_code == 'copy':
+						print(' ')
+						chosen_site = input('Enter the site name for the credential password to copy: ')
+						copy_credential(chosen_site)
+						print('')
+					else:
+						print('wrong choise')
+
+			else: 
+				print(' ')
+				print('Sorry acount doesnt exist.')		
+		
+		else:
+			print("-"*60)
+			print(' ')
+			print(' Wrong option entered.')
+
+if __name__ == '__main__':
+	main()
                 
