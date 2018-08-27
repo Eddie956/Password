@@ -58,6 +58,7 @@ def main():
     print("Hello Welcome to Password locker.what is your name?")
     user_name = input()
     print('\n')
+    print(f"Welcome {user_name} to password locker. please proceed with the instructions")
 
     while True:
         print("use these short codes : ca - create account, lg - login, ex - exit")
@@ -66,7 +67,7 @@ def main():
         short_code = input().lower()
         if short_code == 'ex':
             print("\n")
-            print("Godbye {user_name} ")
+            print(f"Godbye {user_name} ")
             break
 
         if short_code == 'ca':
@@ -87,8 +88,7 @@ def main():
             user_exists = verify_user(user_name,password)
             if user_exists == user_name:
                 print("\n")
-                print("Welcome {user_name}. What do you want to do")
-
+                print(f"Welcome {user_name}. What do you want to do")
                 while True:
                     print('Choose: \n cc - create a credential \n dc display credentials \n copy - copy pasword to the clipboard \n ex - exit')
                     short_code = input()
