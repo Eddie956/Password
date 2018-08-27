@@ -1,4 +1,4 @@
-# Password Locker
+# Password
 
 A password locker is a well secure and convinient storange for all your sensitive data.It helps one generate new pasword if one has forgoten the previous for his or her account.
 
@@ -38,8 +38,8 @@ This password locker contains different sections such:
 ## How to get the app
 
 	$ cd Document
-	$ git clone https://github.com/Eddie956/Password-Locker/
-	$ cd Password-Locker
+	$ git clone https://github.com/Eddie956/Password/
+	$ cd Password
 ## Running password locker
 	 
  	 $ python3.6 run.py / 
