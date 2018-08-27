@@ -68,8 +68,8 @@ class Credential:
 		'''
 		current_user = ''
 		for user in User.users_list:
-			if (user.f_name == f_name and user.password == password):
-				current_user = user._name
+			if user.f_name == f_name and user.password == password:
+				current_user = user.f_name
 		return current_user
 
 	# def verify_user(self):

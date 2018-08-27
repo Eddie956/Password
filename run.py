@@ -59,7 +59,7 @@ def main():
     user_name = input()
     print('\n')
 
-    if True:
+    while True:
         print("use these short codes : ca - create account, lg - login, ex - exit")
         
 
