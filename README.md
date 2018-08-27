@@ -47,7 +47,7 @@ This password locker contains different sections such:
 
 ## Running Test
  
- 	$ python3.6 user_test.py
+ 	$ python3.6 credential_test.py
 
 ## Technology Used
 	
