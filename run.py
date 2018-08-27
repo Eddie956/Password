@@ -91,6 +91,7 @@ def main():
 
                 while True:
                     print('Choose: \n cc - create a credential \n dc display credentials \n copy - copy pasword to the clipboard \n ex - exit')
+                    short_code = input()
                     if short_code == 'cc':
                         print(' ')
                         print('Enter your credential details:')
@@ -131,9 +132,9 @@ def main():
                         print('')
                     else:
                         print('wrong choise')
-            else:
-                print(' ')
-                print('Sorry acount doesnt exist.')
+                else:
+                    print(' ')
+                    print('Sorry acount doesnt exist.')
         else:
             print(' ')
             print(' Wrong option entered.')

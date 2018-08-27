@@ -72,6 +72,4 @@ class Credential:
 				current_user = user.f_name
 		return current_user
 
-	# def verify_user(self):
-	# 	'''
-	# 	'''
+	
