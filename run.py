@@ -15,7 +15,7 @@ def save_user(user):
     '''
     User.save_user(user)
 
-def generate_password():
+def generate_password(self):
     '''
     to generate a password automaticaly
     '''

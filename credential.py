@@ -1,4 +1,6 @@
 import pyperclip
+import string
+import random
 class User:
 
 	users_list = []
@@ -72,4 +74,9 @@ class Credential:
 				current_user = user.f_name
 		return current_user
 
-	
+	def generate_password(self,size=8,char=string.ascii_uppercase+string.ascii_lowercase):
+		'''
+		function to generate a new pasword for the user
+		'''
+		generate_password ='' .join(random.choice(char) for _ in range(size))
+		return generate_password
