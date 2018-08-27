@@ -62,36 +62,36 @@ class TestCredential(unittest.TestCase):
         pinterest = Credential("Artjim", "pinterest", "pdrfg3")
         pinterest.save_credential()
         self.assertEqual(len(Credential.credential_list),2)
-    # def test_find_by_account_name(self):
-    #     '''
-    #     test to check if we can find an account  and display information
-    #     '''
-    #     self.new_credential.save_credential()
-    #     pinterest = Credential("Artjim", "pinterest", "pdrfg3")
-    #     pinterest.save_credential()
-    #     credential_exists = Credential.find_by_site_name('pinterest')
-    #     self.assertEqual(credential_exists, twitter)
+    def test_find_by_account_name(self):
+        '''
+        test to check if we can find an account  and display information
+        '''
+        self.new_credential.save_credential()
+        pinterest = Credential("Artjim", "pinterest", "pdrfg3")
+        pinterest.save_credential()
+        credential_exists = Credential.find_by_site_name('pinterest')
+        self.assertEqual(credential_exists, twitter)
     
-    # def test_display_all_credentials(self):
-    #     '''
-    #     method that returns a list of all credentials saved
-    #     '''
-    #     self.asertEqual(Credential.display_credential(),Credential.credential_list)
-    # def test_copy_credential(self):
-    #     '''
-    #     Test to check if the copied the correct credential
-    #     '''
-    #     self.new_credential.save_credential()
-    #     pinterest = Credential("Artjim", "pinterest", "pdrfg3")
-    #     pinterest.save_credential()
-    #     find_credential = None
-    #     for credential in Credential.user_credential_list:
-    #         find_credential = Credential.find_by_account_name(credential.account_name)
-    #         return pyperclip.copy(find_credential.password)
-    #     Credential.copy_credential(self.new_credential.account_name)
+    def test_display_all_credentials(self):
+        '''
+        method that returns a list of all credentials saved
+        '''
+        self.asertEqual(Credential.display_credential(),Credential.credential_list)
+    def test_copy_credential(self):
+        '''
+        Test to check if the copied the correct credential
+        '''
+        self.new_credential.save_credential()
+        pinterest = Credential("Artjim", "pinterest", "pdrfg3")
+        pinterest.save_credential()
+        find_credential = None
+        for credential in Credential.user_credential_list:
+            find_credential = Credential.find_by_account_name(credential.account_name)
+            return pyperclip.copy(find_credential.password)
+        Credential.copy_credential(self.new_credential.account_name)
 
-    #     self.assertEqual('pdrfg3',pyperclip.paste())
-    #     print(pyperclip.paste())
+        self.assertEqual('pdrfg3',pyperclip.paste())
+        print(pyperclip.paste())
         
 if __name__ == '__main__':
     unittest.main()
