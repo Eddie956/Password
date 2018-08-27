@@ -40,7 +40,7 @@ This password locker contains different sections such:
 	$ cd Document
 	$ git clone https://github.com/Eddie956/Password/
 	$ cd Password
-## Running password locker
+## Running passwor
 	 
  	 $ python3.6 run.py / 
 	 $ ./run.py
@@ -75,5 +75,5 @@ This password locker contains different sections such:
 
 * No. 0725463583
 
-* email: muugieddie3@gmail.com
+* email: mutugieddie3@gmail.com
 
