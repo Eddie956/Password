@@ -3,7 +3,7 @@ class User:
 
 	users_list = []
 
-	def __int__(self,f_name,l_name,password):
+	def __init__(self,f_name,l_name,password):
 		'''
 		methods that defines properties for each
 		'''
@@ -20,16 +20,7 @@ class Credential:
 
 	credential_list = []
 
-	@classmethod
-	def check_user(cls, f_name, password):
-		'''
-		Method that checks if the name and password entered match entries in the users_list
-		'''
-		current_user = ''
-		for user in User.users_list:
-			if (user.f_name == f_name and user.password == password):
-				current_user = user._name
-		return current_user
+	
 		
 	def __init__(self,user_name,account_name,password):
 		'''
@@ -54,7 +45,7 @@ class Credential:
 			if credential.account_name == account_name:
 				return credential
 	@classmethod
-	def contact_exist(cls,account_name):
+	def account_exist(cls,account_name):
 		'''
 		method that checks if the account exists from the contact list.
 		'''
@@ -70,4 +61,17 @@ class Credential:
 		'''
 		return cls.credential_list
 
-	
+	@classmethod
+	def checking_user(cls, f_name, password):
+		'''
+		Method that checks if the name and password entered match entries in the users_list
+		'''
+		current_user = ''
+		for user in User.users_list:
+			if (user.f_name == f_name and user.password == password):
+				current_user = user._name
+		return current_user
+
+	# def verify_user(self):
+	# 	'''
+	# 	'''
